@@ -1,0 +1,13 @@
+{
+	"enabled": true,
+	"rule"   : "Cobalt Strike Team Servers - APT Profiles - Web Certs",
+	"module" : "webcerts",
+	"action" : "search",
+	"start"  : 0,
+	"count"  : 30,
+	"filter" : {
+		"or": [
+			{ "match": [ "certificate.IssuerO", "www.virtuallythere.com" ] }
+		]
+	}
+}

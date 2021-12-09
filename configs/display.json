@@ -1,0 +1,324 @@
+{
+	"dns": {
+		"columns": [
+			{
+				"key"  : ["query"],
+				"alias": "Query",
+				"align": "<",
+				"width": 30
+			},
+			{
+				"key"  : ["metadata", "query", "root"],
+				"alias": "Query Root",
+				"align": "^",
+				"width": 30
+			},
+			{
+				"key"  : ["type"],
+				"alias": "Type",
+				"align": "^",
+				"width": 7
+			},
+			{
+				"key"  : ["metadata", "answer", "ip_str"],
+				"alias": "Answer IP",
+				"align": "^",
+				"width": 18
+			},
+			{
+				"key"  : ["metadata", "answer", "domain"],
+				"alias": "Answer Domain",
+				"align": "^",
+				"width": 30
+			},
+			{
+				"key"  : ["metadata", "answer", "root"],
+				"alias": "Answer Root",
+				"align": "^",
+				"width": 30
+			},
+			{
+				"key"  : ["answer"],
+				"alias": "Raw Answer",
+				"align": "^",
+				"width": 40
+			}
+		]
+	},
+	"webreqs": {
+		"columns": [
+			{
+				"key"  : ["src_host"],
+				"alias": "Host",
+				"align": "<",
+				"width": 40
+			},
+			{
+				"key"  : ["src_port"],
+				"alias": "Port",
+				"align": "^",
+				"width": 8
+			},
+			{
+				"key"  : ["server"],
+				"alias": "Server",
+				"align": "^",
+				"width": 30
+			},
+			{
+				"key"  : ["title"],
+				"alias": "Title",
+				"align": "^",
+				"width": 45
+			},
+			{
+				"key"  : ["ntlm", "netBiosDomainName"],
+				"alias": "NetBios Domain",
+				"align": "^",
+				"width": 20
+			},
+			{
+				"key"  : ["ntlm", "netBiosComputerName"],
+				"alias": "NetBios Computer",
+				"align": "^",
+				"width": 20
+			}
+		]
+	},
+	"webcerts": {
+		"columns": [
+			{
+				"key"  : ["src_host"],
+				"alias": "Host",
+				"align": "<",
+				"width": 50
+			},
+			{
+				"key"  : ["src_port"],
+				"alias": "Port",
+				"align": "^",
+				"width": 8
+			},
+			{
+				"key"  : ["certificate", "IssuerO"],
+				"alias": "Issuer",
+				"align": "^",
+				"width": 20
+			},
+			{
+				"key"  : ["certificate", "SubjectO"],
+				"alias": "Sub. Org",
+				"align": "^",
+				"width": 20
+			},
+			{
+				"key"  : ["certificate", "SubjectL"],
+				"alias": "Sub. City",
+				"align": "^",
+				"width": 15
+			},
+			{
+				"key"  : ["certificate", "SubjectS"],
+				"alias": "Sub. State",
+				"align": "^",
+				"width": 20
+			},
+			{
+				"key"  : ["certificate", "SubjectC"],
+				"alias": "Sub. Country",
+				"align": "^",
+				"width": 13
+			},
+			{
+				"key"  : ["certificate", "SelfSigned"],
+				"alias": "Self Signed",
+				"align": "^",
+				"width": 12
+			},
+			{
+				"key"  : ["certificate", "Expired"],
+				"alias": "Expired",
+				"align": "^",
+				"width": 8
+			},
+			{
+				"key"  : ["certificate", "ValidTo"],
+				"alias": "Expires On",
+				"align": "^",
+				"width": 30
+			}
+		]
+	},
+	"whois": {
+		"columns": [
+			{
+				"key"  : ["domain_name"],
+				"alias": "Domain",
+				"align": "<",
+				"width": 30
+			},
+			{
+				"key"  : ["org"],
+				"alias": "org",
+				"align": "^",
+				"width": 30
+			},
+			{
+				"key"  : ["name"],
+				"alias": "Name",
+				"align": "^",
+				"width": 35
+			},
+			{
+				"key"  : ["registrar"],
+				"alias": "Registrar",
+				"align": "^",
+				"width": 20
+			},
+			{
+				"key"  : ["address"],
+				"alias": "Address",
+				"align": "^",
+				"width": 20
+			},
+			{
+				"key"  : ["city"],
+				"alias": "City",
+				"align": "^",
+				"width": 15
+			},
+			{
+				"key"  : ["state"],
+				"alias": "State",
+				"align": "^",
+				"width": 10
+			},
+			{
+				"key"  : ["zipcode"],
+				"alias": "Zip Code",
+				"align": "^",
+				"width": 8
+			}
+		]
+	},
+	"anonftp": {
+		"columns": [
+			{
+				"key"  : ["@timestamp"],
+				"alias": "Discovered",
+				"align": "<",
+				"width": 14
+			},
+			{
+				"key"  : ["lastModTime"],
+				"alias": "Modified",
+				"align": "^",
+				"width": 14
+			},
+			{
+				"key"  : ["extension"],
+				"alias": "Extension",
+				"align": "^",
+				"width": 9
+			},
+			{
+				"key"  : ["name"],
+				"alias": "Filename",
+				"align": "^",
+				"width": 35
+			},
+			{
+				"key"  : ["size"],
+				"alias": "Size",
+				"align": "^",
+				"width": 8
+			},
+			{
+				"key"  : ["url"],
+				"alias": "URL",
+				"align": "<",
+				"width": 80
+			}
+		]
+	},
+	"s3buckets": {
+		"columns": [
+			{
+				"key"  : ["bucket"],
+				"alias": "Bucket",
+				"align": "<",
+				"width": 30
+			},
+			{
+				"key"  : ["lastModTime"],
+				"alias": "Last Modified",
+				"align": "^",
+				"width": 26
+			},
+			{
+				"key"  : ["extension"],
+				"alias": "Extension",
+				"align": "^",
+				"width": 9
+			},
+			{
+				"key"  : ["size"],
+				"alias": "Size",
+				"align": "^",
+				"width": 10
+			},
+			{
+				"key"  : ["name"],
+				"alias": "Name",
+				"align": "^",
+				"width": 40
+			},
+			{
+				"key"  : ["region"],
+				"alias": "Region",
+				"align": "^",
+				"width": 15
+			},
+			{
+				"key"  : ["object"],
+				"alias": "Path",
+				"align": "<",
+				"width": 40
+			}
+		]
+	},
+	"credentials": {
+		"columns": [
+			{
+				"key"  : ["domain"],
+				"alias": "Domain",
+				"align": "<",
+				"width": 30
+			},
+			{
+				"key"  : ["username"],
+				"alias": "Username",
+				"align": "^",
+				"width": 30
+			},
+			{
+				"key"  : ["length"],
+				"alias": "Length",
+				"align": "^",
+				"width": 8
+			},
+			{
+				"key"  : ["passwordMask"],
+				"alias": "Hashcat Mask",
+				"align": "^",
+				"width": 30
+			},
+			{
+				"key"  : ["source", "campaign"],
+				"alias": "Campaign",
+				"align": "^",
+				"width": 30
+			}
+		]
+	}
+}

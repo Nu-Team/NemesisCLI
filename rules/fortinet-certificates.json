@@ -1,0 +1,19 @@
+{
+	"enabled": false,
+	"rule"   : "Fortinet Web Certificates - example.com",
+	"module" : "webcerts",
+	"action" : "search",
+	"start"  : 0,
+	"count"  : 20,
+	"filter" : {
+		"and": [
+			{ "regex": [ "src_host", "([a-z0-9\\._\\-]{1,}\\.)?example\\.[a-z]{2,}" ] },
+			{
+				"or": [
+					{ "regex": [ "certificate.SubjectO", ".*fortinet.*" ] },
+					{ "regex": [ "certificate.IssuerO", ".*fortinet.*" ] }
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"enabled": false,
+	"rule"   : "Cobalt Strike Team Servers - Default Certificate Serial",
+	"module" : "webcerts",
+	"action" : "search",
+	"start"  : 0,
+	"count"  : 30,
+	"filter" : {
+		"or": [
+			{ "match": [ "certificate.SerialDecimal", "146473198" ] }
+		]
+	}
+}

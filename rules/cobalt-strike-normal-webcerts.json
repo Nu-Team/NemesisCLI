@@ -1,0 +1,72 @@
+{
+	"enabled": true,
+	"rule"   : "Cobalt Strike Team Servers - Normal Profiles - Web Certs",
+	"module" : "webcerts",
+	"action" : "search",
+	"start"  : 0,
+	"count"  : 30,
+	"filter" : {
+		"or": [
+			{
+				"and": [
+					{ "match": [ "certificate.IssuerCN", "www.windowsupdate.com" ] },
+					{ "match": [ "certificate.SelfSigned", true ] }
+				]
+			},
+			{
+				"and": [
+					{ "match": [ "certificate.IssuerCN", "www.bing.com" ] },
+					{ "match": [ "certificate.SelfSigned", true ] }
+				]
+			},
+			{
+				"and": [
+					{ "match": [ "certificate.IssuerCN", "www.cnn.com" ] },
+					{ "match": [ "certificate.SelfSigned", true ] }
+				]
+			},
+			{
+				"and": [
+					{ "match": [ "certificate.IssuerCN", "gmail.com" ] },
+					{ "match": [ "certificate.IssuerO", "Google GMail" ] },
+					{ "match": [ "certificate.SelfSigned", true ] }
+				]
+			},
+			{
+				"and": [
+					{ "match": [ "certificate.IssuerCN", "*.google.com" ] },
+					{ "match": [ "certificate.SelfSigned", true ] }
+				]
+			},
+			{
+				"and": [
+					{ "match": [ "certificate.IssuerCN", "www.msnbc.com" ] },
+					{ "match": [ "certificate.SelfSigned", true ] }
+				]
+			},
+			{
+				"and": [
+					{ "match": [ "certificate.IssuerCN", "mail.live.com" ] },
+					{ "match": [ "certificate.SelfSigned", true ] }
+				]
+			},
+			{
+				"and": [
+					{ "match": [ "certificate.IssuerCN", "*.wikipedia.org" ] },
+					{ "match": [ "certificate.SelfSigned", true ] }
+				]
+			},
+			{
+				"and": [
+					{ "match": [ "certificate.IssuerC", "US" ] },
+					{ "match": [ "certificate.IssuerCN", "localhost" ] },
+					{ "match": [ "certificate.IssuerL", "San Francisco" ] },
+					{ "match": [ "certificate.IssuerOU", "IT Services" ] },
+					{ "match": [ "certificate.IssuerO", "FooCorp" ] },
+					{ "match": [ "certificate.IssuerS", "CA" ] },
+					{ "match": [ "certificate.SelfSigned", true ] }
+				]
+			}
+		]
+	}
+}

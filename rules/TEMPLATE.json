@@ -1,0 +1,9 @@
+{
+	"enabled": false,
+	"rule"   : null,
+	"module" : null,
+	"action" : null,
+	"start"  : null,
+	"count"  : null,
+	"filter" : null
+}

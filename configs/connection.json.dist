@@ -1,0 +1,6 @@
+{
+	"api.url"    : "https://api.name-unknown.com/nemesis/v1",
+	"refresh.url": "https://api.name-unknown.com/refresh/v1",
+	"nu.key"     : "",
+	"nu.token"   : ""
+}

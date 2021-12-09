@@ -1,0 +1,14 @@
+{
+	"enabled": false,
+	"rule"   : "Cobalt Strike Team Servers - Web Requests - Normal Profiles",
+	"module" : "webreqs",
+	"action" : "search",
+	"start"  : 0,
+	"count"  : 30,
+	"filter" : {
+		"or": [
+			{ "match": [ "headers", "x-amz-id-1: THKUYEZKCKPGY5T42PZT" ] },
+			{ "match": [ "headers", "x-amz-id-2: a21yZ2xrNDNtdGRsa212bGV3YW85amZuZW9ydG5rZmRuZ2tmZGl4aHRvNDVpbgo=" ] }
+		]
+	}
+}

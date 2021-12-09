@@ -1,0 +1,23 @@
+{
+	"enabled": false,
+	"rule"   : "Internal IPs Exposed in Public DNS",
+	"module" : "dns",
+	"action" : "search",
+	"start"  : 0,
+	"count"  : 20,
+	"filter" : {
+		"and": [
+			{
+				"regex": [ "metadata.query.root", "reddit\\.[a-z]{2,}" ]
+			},
+			{
+				"or": [
+					{ "match": [ "metadata.answer.ip_str", "10.0.0.0/8"     ] },
+					{ "match": [ "metadata.answer.ip_str", "127.0.0.0/8"    ] },
+					{ "match": [ "metadata.answer.ip_str", "172.16.0.0/12"  ] },
+					{ "match": [ "metadata.answer.ip_str", "192.168.0.0/16" ] }
+				]
+			}
+		]
+	}
+}

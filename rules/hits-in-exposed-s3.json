@@ -1,0 +1,15 @@
+{
+	"enabled": false,
+	"rule"   : "Exposed Amazon S3 Buckets - example",
+	"module" : "s3buckets",
+	"action" : "search",
+	"start"  : 0,
+	"count"  : 20,
+	"filter" : {
+		"or": [
+			{ "regex": ["bucket", ".*example.*"] },
+			{ "regex": ["name",   ".*example.*"] },
+			{ "regex": ["object", ".*example.*"] }
+		]
+	}
+}

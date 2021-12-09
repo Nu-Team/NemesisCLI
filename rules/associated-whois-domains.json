@@ -1,0 +1,22 @@
+{
+	"enabled": false,
+	"rule"   : "Associated Whois Domains - example.com",
+	"module" : "whois",
+	"action" : "search",
+	"start"  : 0,
+	"count"  : 100,
+	"filter" : {
+		"or": [
+			{ "regex": [ "domain_name", "([a-z0-9\\._\\-]{1,}\\.)?example\\.[a-z]{2,}" ] },
+			{ "regex": [ "domain_name", ".*example.*" ] },
+			{ "regex": [ "org", ".*(example|exmpl).*" ] },
+			{ "regex": [ "name", ".*(example|exmpl).*" ] },
+			{ "regex": [ "email", ".*@([a-z0-9\\._\\-]{1,}\\.)?example\\.[a-z]{2,}" ] },
+			{ "regex": [ "emails", ".*@([a-z0-9\\._\\-]{1,}\\.)?example\\.[a-z]{2,}" ] },
+			{ "regex": [ "admin_email", ".*@([a-z0-9\\._\\-]{1,}\\.)?example\\.[a-z]{2,}" ] },
+			{ "regex": [ "tech_email", ".*@([a-z0-9\\._\\-]{1,}\\.)?example\\.[a-z]{2,}" ] },
+			{ "regex": [ "registrant_email", ".*@([a-z0-9\\._\\-]{1,}\\.)?example\\.[a-z]{2,}" ] },
+			{ "regex": [ "billing_email", ".*@([a-z0-9\\._\\-]{1,}\\.)?example\\.[a-z]{2,}" ] }
+		]
+	}
+}

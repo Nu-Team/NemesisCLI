@@ -1,0 +1,18 @@
+{
+	"enabled": false,
+	"rule"   : "External Web Services Exposing NTLM Authentication",
+	"module" : "webreqs",
+	"action" : "search",
+	"start"  : 0,
+	"count"  : 20,
+	"filter" : {
+		"and": [
+			{
+				"regex": [ "src_host", "([a-z0-9\\._\\-]{1,}\\.)?example\\.[a-z]{2,}" ]
+			},
+			{
+				"exists": "ntlm"
+			}
+		]
+	}
+}
