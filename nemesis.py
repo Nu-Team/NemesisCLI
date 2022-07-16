@@ -19,7 +19,7 @@ TC_BOLD = '\033[1m'
 TC_END  = '\033[0m'
 
 # Recursion depth control
-RECURSION_DEPTH = 4
+RECURSION_DEPTH = 0
 
 # Fields Configurations
 with open("./configs/fields.json", "r", encoding="utf-8") as fields_fh:
@@ -215,40 +215,48 @@ def print_refresh(status, message):
 
 	elif status != 200:
 		status_str = f"{TC_BOLD}{TC_RED}{status}{TC_END}"
-		jobid_str  = f"{TC_BOLD}{TC_BLUE}{msg_dict['job.id']}{TC_END}"
+
+		if 'job.id' not in msg_dict.keys():
+			msg_dict['job.id'] = '00000000-0000-0000-0000-000000000000'
+			jobid_str = f"{TC_BOLD}{TC_RED}{msg_dict['job.id']}{TC_END}"
+		
+		else:
+			jobid_str = f"{TC_BOLD}{TC_BLUE}{msg_dict['job.id']}{TC_END}"
 
 		row = f"{status_str:{' '}{'^'}{5}} - {jobid_str:{' '}{'^'}{38}} - "
 
-		if msg_dict["domains"] != None:
-			if "Error" in msg_dict["domains"].keys():
-				d_error_str = f"{TC_BOLD}{TC_BLUE}{msg_dict['domains']['Error']}{TC_END}"
+		if 'domains' in msg_dict.keys():
+			if msg_dict["domains"] != None:
+				if "Error" in msg_dict["domains"].keys():
+					d_error_str = f"{TC_BOLD}{TC_BLUE}{msg_dict['domains']['Error']}{TC_END}"
 
-				row += f"Error:{d_error_str}"
+					row += f"Error:{d_error_str}"
 
-			else:
-				d_total_str   = f"{TC_BOLD}{TC_BLUE}{msg_dict['domains']['total']}{TC_END}"
-				d_company_str = f"{TC_BOLD}{TC_BLUE}{msg_dict['domains']['usage']['company']}{TC_END}"
-				d_account_str = f"{TC_BOLD}{TC_BLUE}{msg_dict['domains']['usage']['account']}{TC_END}"
+				else:
+					d_total_str   = f"{TC_BOLD}{TC_BLUE}{msg_dict['domains']['total']}{TC_END}"
+					d_company_str = f"{TC_BOLD}{TC_BLUE}{msg_dict['domains']['usage']['company']}{TC_END}"
+					d_account_str = f"{TC_BOLD}{TC_BLUE}{msg_dict['domains']['usage']['account']}{TC_END}"
 
-				row += f"Refreshed Domains:{d_total_str:{' '}{'^'}{5}} - "
-				row += f"Domain Usage:[ Company:{d_company_str:{' '}{'^'}{9}} | Account:{d_account_str:{' '}{'^'}{9}}]"
+					row += f"Refreshed Domains:{d_total_str:{' '}{'^'}{5}} - "
+					row += f"Domain Usage:[ Company:{d_company_str:{' '}{'^'}{9}} | Account:{d_account_str:{' '}{'^'}{9}}]"
 
+				if msg_dict["ipv4"] != None:
+					row += f" - "
+
+		if 'ipv4' in msg_dict.keys():
 			if msg_dict["ipv4"] != None:
-				row += f" - "
+				if "Error" in msg_dict["ipv4"].keys():
+					i_error_str = f"{TC_BOLD}{TC_BLUE}{msg_dict['ipv4']['Error']}{TC_END}"
 
-		if msg_dict["ipv4"] != None:
-			if "Error" in msg_dict["ipv4"].keys():
-				i_error_str = f"{TC_BOLD}{TC_BLUE}{msg_dict['ipv4']['Error']}{TC_END}"
+					row += f"Error:{i_error_str}"
 
-				row += f"Error:{i_error_str}"
+				else:
+					i_total_str   = f"{TC_BOLD}{TC_BLUE}{msg_dict['ipv4']['total']}{TC_END}"
+					i_company_str = f"{TC_BOLD}{TC_BLUE}{msg_dict['ipv4']['usage']['company']}{TC_END}"
+					i_account_str = f"{TC_BOLD}{TC_BLUE}{msg_dict['ipv4']['usage']['account']}{TC_END}"
 
-			else:
-				i_total_str   = f"{TC_BOLD}{TC_BLUE}{msg_dict['ipv4']['total']}{TC_END}"
-				i_company_str = f"{TC_BOLD}{TC_BLUE}{msg_dict['ipv4']['usage']['company']}{TC_END}"
-				i_account_str = f"{TC_BOLD}{TC_BLUE}{msg_dict['ipv4']['usage']['account']}{TC_END}"
-
-				row += f"Refreshed IPv4:{i_total_str:{' '}{'^'}{5}} - "
-				row += f"IPv4 Usage:[ Company:{i_company_str:{' '}{'^'}{9}} | Account:{i_account_str:{' '}{'^'}{9}}]"
+					row += f"Refreshed IPv4:{i_total_str:{' '}{'^'}{5}} - "
+					row += f"IPv4 Usage:[ Company:{i_company_str:{' '}{'^'}{9}} | Account:{i_account_str:{' '}{'^'}{9}}]"
 
 		print(row)
 
@@ -435,6 +443,10 @@ def process_refresh(domains, cidrs):
 	
 	# Send domains
 	for i in _grouper(domains, 10):
+		'''
+			nemesis.py:446: DeprecationWarning: NotImplemented should not be used
+			in a boolean context i = list(filter(None.__ne__, i))
+		'''
 		i = list(filter(None.__ne__, i))
 
 		if len(i) > 0:
